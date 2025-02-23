@@ -2,7 +2,6 @@ from fastapi import FastAPI
 from typing import List
 from models import VideoAnalysisRequest, VideoAnalysis
 from youtube_client import get_youtube_client, get_video_details, get_video_comments
-from transcript import get_smart_transcript_sample
 from openai_client import analyze_content
 
 # Create a FastAPI application instance
@@ -17,13 +16,11 @@ async def analyze_videos(request: VideoAnalysisRequest):
     for video_id in request.video_ids:
         video_details = get_video_details(youtube, video_id)
         comments = get_video_comments(youtube, video_id)
-        transcript_sample = get_smart_transcript_sample(video_id)
         
         analysis = analyze_content(
             request.search_term,
             video_details['title'],
             video_details['description'],
-            transcript_sample,
             comments
         )
         

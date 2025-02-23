@@ -15,11 +15,10 @@ def analyze_content(
     search_term: str,
     title: str,
     description: str,
-    transcript_sample: str,
     comments: List[str],
 ) -> dict:
     """Analyze video content using GPT-4o-mini."""
-    transcript_sample = transcript_sample if transcript_sample else "Not available"
+    #transcript_sample = transcript_sample if transcript_sample else "Not available"
     description = (
         description[:3500] if description else ""
     )  # Limit description to 3500 characters
@@ -27,15 +26,13 @@ def analyze_content(
     content = f"""
     Title: {title}
     Description: {description}
-    Transcript Sample: {transcript_sample}
     Comments: {' | '.join(comments)}
     Search Term: {search_term}
     
     1. Video Analysis - Match Rate (0-100%)
 
     Evaluate how well the video matches the search term based on:
-    Title, description, and transcript (first minute only)
-    How the introduction sets up the topic
+    Title, description, and comments
     Whether the title/description promise relevant content
 
     Scoring Criteria:
@@ -57,7 +54,6 @@ def analyze_content(
     print("Search Term:", search_term)
     print("Title:", title)
     print("Description:", description)
-    print("Transcript Sample:", transcript_sample)
     print("Comments:", comments)
     print("\nFull Prompt:")
     print(content)
