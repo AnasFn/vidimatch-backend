@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - VidiMatch</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <div class="container mx-auto px-4 py-8 max-w-6xl">
+        <div class="dashboard bg-white rounded-xl shadow-lg p-6 md:p-8">
+            <div class="profile-section flex flex-col md:flex-row items-center justify-between mb-8 border-b pb-6">
+                <div class="flex items-center gap-4">
+                    <img id="profile-image" class="profile-image w-16 h-16 rounded-full object-cover border-2 border-indigo-100" src="/placeholder.svg" alt="Profile Picture">
+                    <div class="profile-info">
+                        <h2 id="user-name" class="text-xl font-bold text-gray-800">Loading...</h2>
+                        <p id="user-email" class="text-gray-500">Loading...</p>
+                    </div>
+                </div>
+                <button id="logout-btn" class="logout-btn mt-4 md:mt-0 px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg transition-colors duration-200 font-medium">Logout</button>
+            </div>
+            
+            <div id="subscription-status" class="subscription-status mb-8 p-4 rounded-lg text-center font-semibold">
+                Checking subscription status...
+            </div>
+
+            <div class="analyze-section mb-12 text-center p-6 bg-white rounded-xl shadow-md border border-gray-100">
+                <h2 class="text-2xl font-bold text-gray-800 mb-3">Video Analysis</h2>
+                <p id="analyze-message" class="text-gray-600 mb-6">Loading subscription status...</p>
+                <button id="analyze-btn" class="analyze-btn px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-medium text-lg transition-colors duration-200 disabled:bg-gray-300 disabled:cursor-not-allowed" disabled>Analyze Videos</button>
+            </div>
+            
+            <div class="pricing-section flex flex-wrap justify-center gap-6 lg:gap-8">
+                <div class="pricing-card bg-white rounded-xl shadow-md border border-gray-100 p-6 w-full md:w-80 text-center hover:shadow-lg transition-shadow duration-300">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Monthly Plan</h3>
+                    <div class="price text-4xl font-bold text-indigo-600 my-4">$9.99<span class="period text-sm text-gray-500 font-normal">/month</span></div>
+                    <ul class="features my-6 text-left">
+                        <li class="mb-3 flex items-center text-gray-700"><span class="text-green-500 mr-2">✓</span> Unlimited Video Analysis</li>
+                        <li class="mb-3 flex items-center text-gray-700"><span class="text-green-500 mr-2">✓</span> Priority Support</li>
+                        <li class="mb-3 flex items-center text-gray-700"><span class="text-green-500 mr-2">✓</span> Advanced Analytics</li>
+                    </ul>
+                    <button class="subscribe-btn w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-medium transition-colors duration-200" onclick="handleSubscription('monthly')">Subscribe Monthly</button>
+                    <div class="error-message text-red-500 mt-4 hidden"></div>
+                </div>
+
+                <div class="pricing-card bg-white rounded-xl shadow-md border border-indigo-100 p-6 w-full md:w-80 text-center hover:shadow-lg transition-shadow duration-300 relative">
+                    <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-indigo-600 text-white px-4 py-1 rounded-full text-sm font-medium">Popular</div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Yearly Plan</h3>
+                    <div class="price text-4xl font-bold text-indigo-600 my-4">$99.99<span class="period text-sm text-gray-500 font-normal">/year</span></div>
+                    <ul class="features my-6 text-left">
+                        <li class="mb-3 flex items-center text-gray-700"><span class="text-green-500 mr-2">✓</span> All Monthly Features</li>
+                        <li class="mb-3 flex items-center text-gray-700"><span class="text-green-500 mr-2">✓</span> 2 Months Free</li>
+                        <li class="mb-3 flex items-center text-gray-700"><span class="text-green-500 mr-2">✓</span> Premium Support</li>
+                    </ul>
+                    <button class="subscribe-btn w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-medium transition-colors duration-200" onclick="handleSubscription('yearly')">Subscribe Yearly</button>
+                    <div class="error-message text-red-500 mt-4 hidden"></div>
+                </div>
+
+                <div class="pricing-card bg-white rounded-xl shadow-md border border-gray-100 p-6 w-full md:w-80 text-center hover:shadow-lg transition-shadow duration-300">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Lifetime Access</h3>
+                    <div class="price text-4xl font-bold text-indigo-600 my-4">$299.99<span class="period text-sm text-gray-500 font-normal">/one-time</span></div>
+                    <ul class="features my-6 text-left">
+                        <li class="mb-3 flex items-center text-gray-700"><span class="text-green-500 mr-2">✓</span> All Yearly Features</li>
+                        <li class="mb-3 flex items-center text-gray-700"><span class="text-green-500 mr-2">✓</span> Lifetime Updates</li>
+                        <li class="mb-3 flex items-center text-gray-700"><span class="text-green-500 mr-2">✓</span> VIP Support</li>
+                    </ul>
+                    <button class="subscribe-btn w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-medium transition-colors duration-200" onclick="handleSubscription('lifetime')">Get Lifetime Access</button>
+                    <div class="error-message text-red-500 mt-4 hidden"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        async function loadUserProfile() {
+            try {
+                const response = await fetch('/auth/user', {
+                    credentials: 'include'
+                });
+                if (!response.ok) {
+                    window.location.href = '/login';
+                    return;
+                }
+                const data = await response.json();
+                
+                // Update profile info
+                document.getElementById('profile-image').src = data.avatar_url || 'https://via.placeholder.com/100';
+                document.getElementById('user-name').textContent = data.name || 'User';
+                document.getElementById('user-email').textContent = data.email;
+                
+                // Update subscription status
+                const statusDiv = document.getElementById('subscription-status');
+                const analyzeBtn = document.getElementById('analyze-btn');
+                const analyzeMsg = document.getElementById('analyze-message');
+                
+                if (data.has_subscription) {
+                    statusDiv.textContent = 'Active Subscription';
+                    statusDiv.className = 'subscription-status status-active bg-green-50 text-green-700 p-4 rounded-lg text-center font-semibold';
+                    analyzeBtn.disabled = false;
+                    analyzeMsg.textContent = 'Start analyzing videos now!';
+                } else {
+                    statusDiv.textContent = 'No Active Subscription';
+                    statusDiv.className = 'subscription-status status-inactive bg-red-50 text-red-700 p-4 rounded-lg text-center font-semibold';
+                    analyzeBtn.disabled = true;
+                    analyzeMsg.textContent = 'Please subscribe to start analyzing videos';
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                window.location.href = '/login';
+            }
+        }
+
+        document.getElementById('logout-btn').addEventListener('click', async () => {
+            try {
+                await fetch('/auth/logout', {
+                    method: 'POST',
+                    credentials: 'include'
+                });
+                window.location.href = '/login';
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        });
+
+        async function handleSubscription(plan) {
+            try {
+                const button = event.target;
+                const card = button.closest('.pricing-card');
+                const errorDiv = card.querySelector('.error-message');
+                
+                // Disable button and show loading state
+                button.disabled = true;
+                button.textContent = 'Processing...';
+                errorDiv.style.display = 'none';
+                
+                const response = await fetch('/create-checkout-session', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ plan }),
+                    credentials: 'include'
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok && data.url) {
+                    window.location.href = data.url;
+                } else {
+                    throw new Error(data.detail || 'Failed to create checkout session');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                const errorDiv = event.target.closest('.pricing-card').querySelector('.error-message');
+                errorDiv.textContent = 'Failed to process payment. Please try again.';
+                errorDiv.style.display = 'block';
+                
+                // Reset button state
+                event.target.disabled = false;
+                event.target.textContent = plan === 'lifetime' ? 'Get Lifetime Access' : `Subscribe ${plan.charAt(0).toUpperCase() + plan.slice(1)}`;
+            }
+        }
+
+        document.getElementById('analyze-btn').addEventListener('click', () => {
+            // TODO: Implement video analysis functionality
+            alert('Video analysis feature coming soon!');
+        });
+
+        loadUserProfile();
+    </script>
+</body>
+</html>
+

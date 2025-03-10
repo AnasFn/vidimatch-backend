@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VidiMatch - Smart Video Analysis Chrome Extension</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#E91E63',
+                        secondary: '#9C27B0',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/80 backdrop-blur-md z-50 border-b border-gray-100">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <svg class="h-8" viewBox="0 0 553 147">
+    <g fill="#000000" transform="matrix(5.830903811703725,0,0,5.830903811703725,177.8121561652985,40.942817784738104)">
+        <path d="M4.96 10.50L7.91 3.22L5.81 3.22L4.02 7.92L2.27 3.22L0.14 3.22L3.11 10.50ZM10.92 2.32L10.92 0.42L8.82 0.42L8.82 2.32ZM10.92 10.50L10.92 3.22L8.82 3.22L8.82 10.50ZM16.94 0.42L16.94 3.85C16.52 3.19 15.83 3.01 15.25 3.01C13.51 3.01 12.04 4.31 12.04 6.86C12.04 9.41 13.44 10.71 15.18 10.71C16.00 10.71 16.66 10.35 17.08 9.65L17.08 10.50L19.04 10.50L19.04 0.42ZM17.09 6.86C17.09 8.29 16.44 8.96 15.61 8.96C14.78 8.96 14.14 8.29 14.14 6.86C14.14 5.43 14.73 4.76 15.62 4.76C16.52 4.76 17.09 5.43 17.09 6.86ZM22.68 2.32L22.68 0.42L20.58 0.42L20.58 2.32ZM22.68 10.50L22.68 3.22L20.58 3.22L20.58 10.50ZM26.67 10.50L26.67 4.30L28.97 10.50L30.86 10.50L33.15 4.30L33.15 10.50L35.39 10.50L35.39 0.42L32.59 0.42L29.92 7.80L27.23 0.42L24.43 0.42L24.43 10.50ZM41.30 9.74C41.33 9.98 41.41 10.32 41.62 10.50L43.74 10.50C43.48 10.23 43.32 9.76 43.32 9.02L43.32 6.10C43.32 3.85 42.03 3.01 40.17 3.01C38.81 3.01 37.38 3.53 37.02 5.21L38.79 5.80C38.93 5.26 39.26 4.72 40.07 4.72C40.95 4.72 41.22 5.31 41.22 5.78L41.22 5.95C40.85 6.12 40.40 6.20 39.65 6.29C37.88 6.50 36.79 7.08 36.79 8.65C36.79 10.00 37.90 10.71 39.21 10.71C40.08 10.71 40.70 10.47 41.30 9.74ZM41.22 8.19C40.98 8.68 40.36 9.14 39.70 9.14C39.10 9.14 38.91 8.83 38.89 8.51C38.86 7.94 39.28 7.70 39.93 7.57C40.63 7.43 40.96 7.31 41.22 7.21ZM48.80 8.74C48.58 8.81 48.37 8.82 48.23 8.82C47.57 8.82 47.57 8.37 47.57 7.74L47.57 4.89L48.96 4.89L48.96 3.22L47.57 3.22L47.57 1.12L45.47 1.72L45.47 3.22L44.44 3.22L44.44 4.89L45.47 4.89L45.47 8.37C45.47 9.80 46.07 10.64 47.60 10.64C47.87 10.64 48.65 10.56 48.93 10.40ZM51.83 6.86C51.83 5.50 52.33 4.76 53.20 4.76C53.87 4.76 54.35 5.12 54.50 5.99L56.56 5.68C56.17 3.74 54.77 3.01 53.20 3.01C51.32 3.01 49.73 4.17 49.73 6.86C49.73 9.55 51.32 10.71 53.20 10.71C54.77 10.71 56.17 10.00 56.56 8.05L54.49 7.76C54.33 8.61 53.87 8.96 53.20 8.96C52.29 8.96 51.83 8.22 51.83 6.86ZM59.78 10.50L59.78 6.54C59.78 5.36 60.38 4.77 61.11 4.77C61.92 4.77 62.23 5.25 62.23 6.09L62.23 10.50L64.33 10.50L64.33 6.03C64.33 4.30 63.70 3.01 61.68 3.01C60.82 3.01 60.27 3.33 59.78 4.13L59.78 0.42L57.68 0.42L57.68 10.50Z"></path>
+    </g>
+    <defs>
+        <linearGradient gradientTransform="rotate(25)" id="logo-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color: rgb(180, 55, 61); stop-opacity: 1;"></stop>
+            <stop offset="100%" style="stop-color: rgb(178, 58, 203); stop-opacity: 1;"></stop>
+        </linearGradient>
+    </defs>
+    <g transform="matrix(1.2770782470703126,0,0,1.2770782470703126,-1.8406885089542016,-8.185879702543033)" stroke="none" fill="url(#logo-gradient)">
+        <path d="M55 56.1L5 85c-1.3.8-3.1-.2-3.1-1.7V25.4c0-1.6 1.7-2.5 3.1-1.8l50 28.9c1.3.8 1.3 2.8 0 3.6z"></path>
+        <path d="M120.7 96.6L98.6 81c12.5-18.6 10.6-44.1-5.9-60.5-18.6-18.7-49-18.7-67.6 0-1 1-2 2.1-2.9 3.2l9.4 5.4c.4-.4.7-.8 1.1-1.1 14.5-14.5 38.1-14.5 52.6 0 12.6 12.6 14.2 32.1 4.9 46.5-1.4 2.2-3 4.2-4.9 6.1-1.9 1.9-3.9 3.5-6.1 4.9-14.4 9.3-33.9 7.7-46.5-4.9l-1.1-1.1-9.4 5.4c.9 1.1 1.9 2.2 2.9 3.2 16.4 16.5 42 18.4 60.5 5.8l15.6 22.1c.7.9 1.6 1.8 2.5 2.5 6.1 4.7 14.8 3.6 19.5-2.5 4.7-6 3.6-14.7-2.5-19.4z"></path>
+    </g>
+</svg>
+                </div>
+                <div class="flex items-center space-x-6">
+                    <a href="#features" class="text-gray-600 hover:text-gray-900">Features</a>
+                    <a href="#pricing" class="text-gray-600 hover:text-gray-900">Pricing</a>
+                    <a href="#faq" class="text-gray-600 hover:text-gray-900">FAQ</a>
+                  
+
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5"></div>
+        <div class="container mx-auto px-4 relative">
+            <div class="max-w-4xl mx-auto text-center">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/3-vnzxZMHUboaqizdvPKcucA66GGtU5U.png" alt="VidiMatch Icon" class="h-24 mx-auto mb-8">
+                <h1 class="text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary inline-block text-transparent bg-clip-text">
+                    Analyze Videos Like Never Before
+                </h1>
+                <p class="text-xl text-gray-600 mb-8">
+                    Transform your video watching experience with AI-powered insights, timestamps, and smart summaries.
+                </p>
+                <div class="flex justify-center gap-4">
+                    <a href="/dashboard" class="bg-white border border-gray-300 px-8 py-3 rounded-full hover:bg-gray-50 transition-colors flex items-center gap-2 text-lg font-medium">
+    <svg class="w-6 h-6" viewBox="0 0 24 24">
+        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+    </svg>
+    Login with Google
+</a>
+                </div>
+                <p class="text-sm text-gray-500 mt-4">No credit card required for 14-day trial</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Powerful Features</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-6 rounded-xl bg-gradient-to-br from-primary/5 to-secondary/5">
+                    <div class="w-12 h-12 bg-gradient-to-r from-primary to-secondary rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Smart Analysis</h3>
+                    <p class="text-gray-600">AI-powered video content analysis for quick insights and understanding.</p>
+                </div>
+                <div class="p-6 rounded-xl bg-gradient-to-br from-primary/5 to-secondary/5">
+                    <div class="w-12 h-12 bg-gradient-to-r from-primary to-secondary rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Time Stamps</h3>
+                    <p class="text-gray-600">Automatically generated timestamps for key moments in videos.</p>
+                </div>
+                <div class="p-6 rounded-xl bg-gradient-to-br from-primary/5 to-secondary/5">
+                    <div class="w-12 h-12 bg-gradient-to-r from-primary to-secondary rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Smart Summaries</h3>
+                    <p class="text-gray-600">Get instant summaries of video content with key takeaways.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+<section id="pricing" class="py-20 bg-gradient-to-br from-primary/5 to-secondary/5">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-4">Simple Pricing</h2>
+        <p class="text-center text-gray-600 mb-12">Choose the plan that fits your needs</p>
+        <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <!-- Monthly Plan -->
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105">
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold text-center mb-4">Monthly</h3>
+                    <div class="text-center mb-6">
+                        <span class="text-4xl font-bold">$9.99</span>
+                        <span class="text-gray-500">/month</span>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Unlimited Video Analysis
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Basic AI Features
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Email Support
+                        </li>
+                    </ul>
+                    <a href="#" class="block w-full bg-gradient-to-r from-primary to-secondary text-white text-center py-3 rounded-lg hover:opacity-90 transition-opacity">
+                        Start Free Trial
+                    </a>
+                </div>
+            </div>
+
+            <!-- Yearly Plan -->
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105">
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold text-center mb-4">Yearly</h3>
+                    <div class="text-center mb-6">
+                        <span class="text-4xl font-bold">$99.99</span>
+                        <span class="text-gray-500">/year</span>
+                    </div>
+                    <p class="text-center text-green-500 mb-6">Save 17% compared to monthly</p>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Unlimited Video Analysis
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Advanced AI Features
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Priority Support
+                        </li>
+                    </ul>
+                    <a href="#" class="block w-full bg-gradient-to-r from-primary to-secondary text-white text-center py-3 rounded-lg hover:opacity-90 transition-opacity">
+                        Choose Yearly
+                    </a>
+                </div>
+            </div>
+
+            <!-- Lifetime Plan -->
+            <div class="bg-gradient-to-br from-primary to-secondary rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105">
+                <div class="p-8 text-white">
+                    <div class="bg-white text-primary font-bold py-1 px-3 rounded-full inline-block mb-4">Limited Time Offer</div>
+                    <h3 class="text-2xl font-bold text-center mb-4">Lifetime</h3>
+                    <div class="text-center mb-6">
+                        <span class="text-4xl font-bold">$299.99</span>
+                        <span>/one-time</span>
+                    </div>
+                    <p class="text-center mb-6">Best value! Pay once, use forever.</p>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-white mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Unlimited Video Analysis
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-white mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Premium AI Features
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-white mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            24/7 VIP Support
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-white mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Future Updates Included
+                        </li>
+                    </ul>
+                    <a href="#" class="block w-full bg-white text-primary text-center py-3 rounded-lg hover:bg-opacity-90 transition-opacity font-bold">
+                        Get Lifetime Access
+                    </a>
+                </div>
+            </div>
+        </div>
+        <p class="text-center text-gray-600 mt-12">All plans come with a 14-day free trial. No credit card required.</p>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section id="faq" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+        <div class="max-w-3xl mx-auto">
+            <div class="space-y-4">
+                <div class="border border-gray-200 rounded-lg">
+                    <button class="flex justify-between items-center w-full p-6 text-left" onclick="toggleFAQ(this)">
+                        <h3 class="text-lg font-semibold">How does VidiMatch work?</h3>
+                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="hidden p-6 pt-0">
+                        <p class="text-gray-600">VidiMatch uses advanced AI algorithms to analyze video content, providing smart summaries, timestamps for key moments, and insightful analytics. It works as a Chrome extension, seamlessly integrating with your browsing experience.</p>
+                    </div>
+                </div>
+                <div class="border border-gray-200 rounded-lg">
+                    <button class="flex justify-between items-center w-full p-6 text-left" onclick="toggleFAQ(this)">
+                        <h3 class="text-lg font-semibold">Is my data safe with VidiMatch?</h3>
+                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="hidden p-6 pt-0">
+                        <p class="text-gray-600">Yes, we take data privacy very seriously. VidiMatch only analyzes the videos you choose, and we do not store any personal data or video content. All processing is done in real-time and not saved on our servers.</p>
+                    </div>
+                </div>
+                <div class="border border-gray-200 rounded-lg">
+                    <button class="flex justify-between items-center w-full p-6 text-left" onclick="toggleFAQ(this)">
+                        <h3 class="text-lg font-semibold">Can I use VidiMatch on any video platform?</h3>
+                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="hidden p-6 pt-0">
+                        <p class="text-gray-600">VidiMatch is designed to work with most popular video platforms including YouTube, Vimeo, and many educational sites. We're constantly expanding our compatibility to cover more platforms.</p>
+                    </div>
+                </div>
+                <div class="border border-gray-200 rounded-lg">
+                    <button class="flex justify-between items-center w-full p-6 text-left" onclick="toggleFAQ(this)">
+                        <h3 class="text-lg font-semibold">What's included in the free trial?</h3>
+                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="hidden p-6 pt-0">
+                        <p class="text-gray-600">Our 14-day free trial includes full access to all features of VidiMatch. You can analyze unlimited videos, use all AI features, and experience our support - all without entering any payment information.</p>
+                    </div>
+                </div>
+                <div class="border border-gray-200 rounded-lg">
+                    <button class="flex justify-between items-center w-full p-6 text-left" onclick="toggleFAQ(this)">
+                        <h3 class="text-lg font-semibold">How often is VidiMatch updated?</h3>
+                        <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="hidden p-6 pt-0">
+                        <p class="text-gray-600">We release updates and new features regularly, typically every 2-4 weeks. Our team is constantly working on improving the AI algorithms and adding new functionalities based on user feedback.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-12">
+            <p class="text-gray-600 mb-4">Still have questions? We're here to help!</p>
+            <a href="#" class="inline-block bg-gradient-to-r from-primary to-secondary text-white px-6 py-3 rounded-full hover:opacity-90 transition-opacity">Contact Support</a>
+        </div>
+    </div>
+</section>
+
+    <!-- Footer -->
+    <footer class="bg-white py-8 border-t border-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2-Lom06c6eTuWDpDBHKyqVhfToDhXjUs.png" alt="VidiMatch Logo" class="h-6">
+                <div class="text-sm text-gray-500">
+                    © 2024 VidiMatch. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleFAQ(element) {
+            const content = element.nextElementSibling;
+            const icon = element.querySelector('svg');
+            
+            content.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
+            
+            const allFAQs = document.querySelectorAll('.border.border-gray-200.rounded-lg');
+            allFAQs.forEach(faq => {
+                if (faq !== element.parentElement) {
+                    faq.querySelector('div').classList.add('hidden');
+                    faq.querySelector('svg').classList.remove('rotate-180');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - VidiMatch</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="login-container">
+            <h2>Login to VidiMatch</h2>
+            <button id="google-login" class="google-btn">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google Logo">
+                Sign in with Google
+            </button>
+        </div>
+    </div>
+    <script>
+        document.getElementById('google-login').addEventListener('click', async () => {
+            try {
+                const response = await fetch('/auth/google/signin', {
+                    method: 'POST',
+                    credentials: 'include'
+                });
+                
+                if (response.redirected) {
+                    window.location.href = response.url;
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        });
+    </script>
+</body>
+</html>
